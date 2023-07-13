@@ -1,0 +1,16 @@
+.add-todo-item {
+  padding: 5px 10px;
+  font-size: 1.4rem;
+  color: rgb(83, 83, 83);
+  border-radius: 8px;
+  background-color: rgb(3, 213, 122);
+}
+.remove-todo {
+  padding: 5px 10px;
+  font-size: 1.4rem;
+  border-radius: 8px;
+  color: #fff;
+  background-color: rgb(255, 14, 10);
+  border: none;
+  outline: none;
+}
