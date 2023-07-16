@@ -1,51 +1,33 @@
-// modules
-import { useState, useEffect, useRef } from "react";
+//modules
+import { useContext } from "react";
 //components
 import Input from "./components/Input";
 import Button from "./components/Button";
 import TodoList from "./components/TodoList";
 // styles
 import "./App.css";
+//
+import { TodoContext } from "./components/context";
 
 function App() {
-  const [value, setValue] = useState("");
-  const [todos, setTodos] = useState([]);
-  const inputRef = useRef("");
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
-
-  const addTodo = (value) => {
-    const randomNumber = Date.now();
-    const newTodo = { id: randomNumber, value };
-    setValue("");
-    setTodos((prevState) => [...prevState, newTodo]);
-  };
-  const removeItem = (id) => {
-    setTodos((todos) => todos.filter((todo) => todo.id !== id));
-  };
+  const { todos, value, inputRef, handleClick } = useContext(TodoContext);
 
   return (
     <div className="App">
       <header className="App-header">
-        <div className="add-todo">
-          <Input
-            onChange={(value) => {
-              setValue(value);
-            }}
-            value={value}
-            inputRef={inputRef}
-          />
+        <div className="action-wrapper">
+          <Input ref={inputRef} />
           <Button
             disabled={!value}
-            onClick={() => addTodo(value)}
-            className={"add-todo-item"}
+            onClick={handleClick}
+            className="add-todo-item"
           >
             Add Todo
           </Button>
         </div>
-        <p>number of todos : {todos.length}</p>
-        <TodoList todos={todos} removeItem={removeItem} />
+        <p>number of todos : {todos?.length}</p>
+        {/* USING CONDITIONAL RENDERING */}
+        {todos?.length ? <TodoList /> : <h1>You have no todo</h1>}
       </header>
     </div>
   );

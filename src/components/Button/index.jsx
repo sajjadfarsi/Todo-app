@@ -1,8 +1,12 @@
 //styles
 import "./Style.css";
-const Button = ({ disabled, name, onClick, className, children }) => {
+const Button = ({ disabled = false, onClick, className, children }) => {
   return (
-    <button disabled={disabled} className={className} onClick={onClick}>
+    <button
+      disabled={disabled}
+      className={`${className} ${disabled && "disable-button"}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

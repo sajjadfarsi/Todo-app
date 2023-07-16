@@ -1,10 +1,20 @@
+/* Convert name of this file to lower case */
+
 .add-todo-item {
   padding: 5px 10px;
   font-size: 1.4rem;
   color: rgb(83, 83, 83);
   border-radius: 8px;
   background-color: rgb(3, 213, 122);
+  cursor: pointer;
+  border: 1px solid transparent;
 }
+
+.disable-button {
+  cursor: not-allowed;
+  color: gray;
+}
+
 .remove-todo {
   padding: 5px 10px;
   font-size: 1.4rem;
@@ -13,4 +23,5 @@
   background-color: rgb(255, 14, 10);
   border: none;
   outline: none;
+  cursor: pointer;
 }

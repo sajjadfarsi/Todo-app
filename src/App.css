@@ -12,7 +12,7 @@
 .App-link {
   color: #61dafb;
 }
-.add-todo {
+.action-wrapper {
   padding-top: 5rem;
   display: flex;
   justify-content: center;
